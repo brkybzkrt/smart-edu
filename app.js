@@ -7,6 +7,8 @@ const courseRoute=require('./routes/courseRoute');
 
 const app = express();
 
+
+
 mongoose
   .connect('mongodb://localhost/smartedu', {
     usenewUrlParser: true,
@@ -22,6 +24,8 @@ app.set('view engine', 'ejs');
 //Middlewares
 app.use(express.static('public'));
 
+app.use(express.json()) 
+app.use(express.urlencoded({ extended: true })) 
 
 //Routes
 app.use('/', pageRoute);

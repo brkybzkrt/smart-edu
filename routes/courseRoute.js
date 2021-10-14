@@ -5,4 +5,8 @@ const express=require('express');
 
 const router= express.Router();
 
-router.route('/add').post(courseController.createCourse)// http://localhost:3000/courses
+router.route('/').get(courseController.getCourses)// http://localhost:3000/courses
+router.route('/add').post(courseController.createCourse)
+
+
+module.exports=router;

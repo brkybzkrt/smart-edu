@@ -1,5 +1,21 @@
 const Course = require('../models/Course');
 
+exports.getCourses = async (req, res) => {
+  const courses = await Course.find().sort({ created_date: -1 });
+
+  try {
+    res.status(200).json({
+      status: 'success',
+      courses,
+    });
+  } catch (error) {
+    res.status(404).json({
+      status: 'error',
+      error,
+    });
+  }
+};
+
 exports.createCourse = async (req, res) => {
   const course = await Course.create(req.body);
   try {
@@ -8,7 +24,7 @@ exports.createCourse = async (req, res) => {
       course,
     });
   } catch (error) {
-    res.status(400).json({
+    res.status(404).json({
       status: 'error',
       error,
     });
