@@ -16,6 +16,22 @@ exports.getCourses = async (req, res) => {
   }
 };
 
+exports.getCourse = async (req, res) => {
+  const slug = req.params.slug; 
+  try {
+    const course = await Course.findOne({slug:slug});
+    res.status(200).render('course-single',{
+      course,
+      page_name:`courses/${slug}`
+    });
+  } catch (error) {
+    res.status(404).json({
+      status: 'error',
+      error,
+    });
+  }
+};
+
 exports.createCourse = async (req, res) => {
   
   try {
