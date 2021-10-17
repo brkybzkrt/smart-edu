@@ -5,8 +5,8 @@ const express=require('express');
 
 const router= express.Router();
 
-router.route('/register'). post(authController.createUser)// http://localhost:3000/users/register
+router.route('/register').post(authController.createUser)// http://localhost:3000/users/register
 
-
+router.route('/login').post(authController.loginUser)
 
 module.exports=router;
