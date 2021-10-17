@@ -5,10 +5,7 @@ exports.createUser=async (req,res)=>{
 
     try {
         const user = await User.create(req.body);
-        res.status(201).json({
-          status: 'success',
-          user,
-        });
+        res.status(201).redirect('/login');
       } catch (error) {
         res.status(404).json({
           status: 'error',
@@ -28,7 +25,8 @@ exports.loginUser= (req,res)=>{
       if(user){
         bcrypt.compare(password,user.password,(err,same)=>{
           if(same){
-            res.status(200).send('logged in')
+            req.session.userId=user._id;
+            res.status(200).redirect('/')
           }
         })
       }
