@@ -18,7 +18,9 @@
                        
                     </li>
                     
+                    <% if(userIn){ %>
                     <li class="nav-item"><a class="nav-link" href="">Dashboard</a></li>
+                    <%} %> 
                     <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
                 </ul>
                 <% if(!userIn){ %>
@@ -30,7 +32,7 @@
 
                 <% if(userIn){ %>
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a class="hover-btn-new log <%=page_name ==='register'&& 'orange' %>" href="/logout"  ><span><i class="fas fa-sign-out-alt"></i></span></a></li>
+                        <li><a class="hover-btn-new log " href="users/logout"  ><span><i class="fas fa-sign-out-alt"></i></span></a></li>
                        
                     </ul>
                     <%} %> 
