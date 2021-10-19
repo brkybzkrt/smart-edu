@@ -9,6 +9,7 @@ const UserSchema= new Schema({
     email:{type:String,required:true,unique:true},
     password:{type:String,required:true},
     created_date:{type:Date,default: Date.now},
+    role:{type:String,enum:["Admin", "Student", "Teacher"],default:"Student"}
     
    
 })
