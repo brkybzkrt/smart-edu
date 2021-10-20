@@ -10,7 +10,8 @@ const CourseSchema= new Schema({
     image:{type:String,default:"default-image.jpg"},
     created_date:{type:Date,default: Date.now},
     slug:{type:String,unique:true},
-    category:{type:mongoose.Schema.Types.ObjectId,ref:'Category'}
+    category:{type:mongoose.Schema.Types.ObjectId,ref:'Category'},
+    user:{type:mongoose.Schema.Types.ObjectId,ref:'User'}
 })
 
 CourseSchema.pre('validate',function(next){

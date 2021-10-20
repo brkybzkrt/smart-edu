@@ -14,7 +14,7 @@ exports.getCourses = async (req, res) => {
     }
    
    
-    const courses = await Course.find(filter).sort({ created_date: -1 });
+    const courses = await Course.find(filter).sort({ created_date: -1 }).populate('user');
     const categories = await Category.find().sort({ created_date: -1 });
     
     res.status(200).render('courses',{
@@ -33,7 +33,7 @@ exports.getCourses = async (req, res) => {
 exports.getCourse = async (req, res) => {
   const slug = req.params.slug; 
   try {
-    const course = await Course.findOne({slug:slug});
+    const course = await Course.findOne({slug:slug}).populate('user');
     res.status(200).render('course-single',{
       course,
       page_name:`courses/${slug}`
@@ -49,7 +49,14 @@ exports.getCourse = async (req, res) => {
 exports.createCourse = async (req, res) => {
   
   try {
-    const course = await Course.create(req.body);
+    const {title,description,category}=req.body;
+    const course = await Course.create({
+      title,
+      description,
+      user:req.session.userId,
+      category
+    });
+
     res.status(201).redirect('/courses');
   } catch (error) {
     res.status(404).json({
