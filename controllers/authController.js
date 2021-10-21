@@ -52,7 +52,7 @@ exports.logoutUser=(req,res)=>{
 
 exports.getDashboardPage = async(req, res) => {
 
-  const user = await User.findOne({_id:req.session.userId})
+  const user = await User.findOne({_id:req.session.userId}).populate('courses')
   const categories = await Category.find().sort({ created_date: -1 })
   const courses=await Course.find({user:req.session.userId}).sort({ created_date: -1 })
 

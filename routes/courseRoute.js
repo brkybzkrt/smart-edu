@@ -9,6 +9,7 @@ const router= express.Router();
 router.route('/').get(courseController.getCourses)// http://localhost:3000/courses
 router.route('/add').post(roleMiddleware(["Admin","Teacher"]),courseController.createCourse)
 router.route('/:slug').get(courseController.getCourse)
-
+router.route('/registerToCourse').post(courseController.registerToCourse)
+router.route('/releaseToCourse').post(courseController.releaseToCourse)
 
 module.exports=router;
