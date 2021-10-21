@@ -1,0 +1,72 @@
+<%- include('partials/_header') %>
+<%- include('partials/_nav') %>	
+	<div class="all-title-box">
+		<div class="container text-center">
+			<h1>Contact<span class="m_1">Lorem Ipsum dolroin gravida nibh vel velit.</span></h1>
+		</div>
+	</div>
+	
+    <div id="contact" class="section wb">
+        <div class="container">
+            <div class="section-title text-center">
+                <h3>Need Help? Sure we are Online!</h3>
+            </div><!-- end title -->
+
+            <div class="row">
+                <div class="col-xl-10 offset-1 col-md-10 offset-md-1 col-sm-12">
+                    <div class="contact_form">
+                        <div id="message"></div>
+                        <form action="/contact"  method="POST">
+                            <div class="row row-fluid">
+                                <div class="col-lg-6 col-md-6 col-sm-6">
+                                    <input type="text" name="name"  class="form-control" placeholder="Your Name">
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6">
+                                    <input type="email" name="email"  class="form-control" placeholder="Your Email">
+                                </div>
+                                <div class="col-lg-12 col-md-12 col-sm-12">
+                                    <input type="text" name="subject"  class="form-control" placeholder="Your Subject">
+                                </div>
+                                <div class="col-lg-12 col-md-12 col-sm-12">
+                                    <textarea class="form-control" name="message"  rows="6" placeholder="Give us more details.."></textarea>
+                                </div>
+                                <div class="text-center pd">
+                                    <button type="submit"   class="btn btn-light btn-radius btn-brd grd1 btn-block">Send</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div><!-- end col -->
+				
+            </div><!-- end row -->
+        </div><!-- end container -->
+    </div><!-- end section -->
+	
+	<div class="parallax section dbcolor">
+        <div class="container">
+            <div class="row logos">
+                <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
+                    <a href="#"><img src="images/logo_01.png" alt="" class="img-repsonsive"></a>
+                </div>
+                <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
+                    <a href="#"><img src="images/logo_02.png" alt="" class="img-repsonsive"></a>
+                </div>
+                <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
+                    <a href="#"><img src="images/logo_03.png" alt="" class="img-repsonsive"></a>
+                </div>
+                <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
+                    <a href="#"><img src="images/logo_04.png" alt="" class="img-repsonsive"></a>
+                </div>
+                <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
+                    <a href="#"><img src="images/logo_05.png" alt="" class="img-repsonsive"></a>
+                </div>
+                <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
+                    <a href="#"><img src="images/logo_06.png" alt="" class="img-repsonsive"></a>
+                </div>
+            </div><!-- end row -->
+        </div><!-- end container -->
+    </div><!-- end section -->
+
+	<%- include('partials/_footer') %>
+
+
