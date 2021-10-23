@@ -105,7 +105,6 @@ exports.registerToCourse = async (req, res) => {
 
 
 
-
 exports.releaseToCourse = async (req, res) => {
   
   try {
@@ -122,4 +121,14 @@ exports.releaseToCourse = async (req, res) => {
   }
 };
 
+exports.deleteCourse= async(req,res)=>{
+try {
+  const slug=req.params.slug
+  const course = await Course.findOneAndRemove({slug})
+  req.flash('success',`${course.title} deleted succesfully`)
+  res.status(200).redirect('/users/dashboard');
+} catch (error) {
+  res.status(400).redirect('/users/dashboard');
+}
 
+}
