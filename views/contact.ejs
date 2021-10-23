@@ -10,10 +10,25 @@
         <div class="container">
             <div class="section-title text-center">
                 <h3>Need Help? Sure we are Online!</h3>
-            </div><!-- end title -->
+            </div>
 
             <div class="row">
                 <div class="col-xl-10 offset-1 col-md-10 offset-md-1 col-sm-12">
+
+                    
+            <% if(flashMessages) {%>
+                <% if(flashMessages.success) {%>
+                   <div class="alert alert-success">
+                       <%=flashMessages.success%>
+                   </div>
+                    
+               
+                <% } else if(flashMessages.error) {%>
+                    <div class="alert alert-success">
+                        <%=flashMessages.error%>
+                    </div>
+                    <%}%>
+            <%}%>
                     <div class="contact_form">
                         <div id="message"></div>
                         <form action="/contact"  method="POST">
@@ -67,6 +82,11 @@
         </div><!-- end container -->
     </div><!-- end section -->
 
+
+    
+
+
+    
 	<%- include('partials/_footer') %>
 
 
