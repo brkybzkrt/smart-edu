@@ -132,3 +132,23 @@ try {
 }
 
 }
+
+
+exports.updateCourse= async(req,res)=>{
+  try {
+    const slug=req.params.slug
+    const {title, description,category}= req.body;
+    const course = await Course.findOne({slug});
+    course.title=title;
+    course.description=description;
+    course.category=category;
+    course.save();
+
+    req.flash('success',`${course.title} Updated succesfully`)
+    res.status(200).redirect('/users/dashboard');
+  } catch (error) {
+    res.status(400).redirect('/users/dashboard');
+  }
+  
+  }
+  
