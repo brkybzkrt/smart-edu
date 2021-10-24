@@ -32,7 +32,14 @@ exports.loginUser= (req,res)=>{
         bcrypt.compare(password,user.password,(err,same)=>{
           if(same){
             req.session.userId=user._id;
-            res.status(200).redirect('/users/dashboard')
+            req.session.userRole=user.role;
+            if(user.role==='Admin'){
+                
+                res.status(200).redirect('/adminPage');
+            }else{
+              res.status(200).redirect('/users/dashboard');
+            }
+            
           }else{
             req.flash('error',`Password is not correct`)
             res.status(400).redirect('/login')
