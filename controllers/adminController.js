@@ -20,3 +20,23 @@ exports.userDelete=async(req,res)=>{
     res.status(200).redirect('/adminPage');
 }
 
+
+exports.categoriesDelete=async(req,res)=>{
+    const _id=req.params.id;
+    await Category.findOneAndRemove(_id);
+    res.status(200).redirect('/adminPage');
+}
+
+
+
+exports.categoriesUpdate=async(req,res)=>{
+    const _id=req.params.id;
+    const {title}=req.body;
+   const category= await Category.findById(_id);
+    category.title=title;
+    category.save();
+   
+    res.status(200).redirect('/adminPage');
+}
+
+
