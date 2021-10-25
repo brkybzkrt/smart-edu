@@ -40,3 +40,12 @@ exports.categoriesUpdate=async(req,res)=>{
 }
 
 
+exports.createCategory=async(req,res)=>{
+   
+
+    await Category.create(req.body);
+   
+   
+    res.status(200).redirect('/adminPage');
+}
+
