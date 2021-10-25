@@ -19,12 +19,9 @@
 							<img src="/<%= course.image%>" alt="" class="img-fluid">
 						</div>
 						<div class="post-content">
-							<div class="post-date">
-								<span class="day"></span>
 							
-							</div>
-							<div class="meta-info-blog">
-								<span><i class="fa fa-calendar"></i> <a href="#"><%= course.created_date%></a> </span>
+							<div class="meta-info-blog ">
+								<span class="day"><i class="fa fa-calendar"></i> <%= time(course.created_date) %> </span>
 
 								<% if(user && !(user.courses.includes(course._id))) { %>
 								<span class="float-right">

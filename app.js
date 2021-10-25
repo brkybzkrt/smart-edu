@@ -4,6 +4,7 @@ const session = require('express-session');
 const MongoStore = require('connect-mongo');
 const flash = require('connect-flash');
 const methodOverride = require('method-override');
+const moment = require('moment'); 
 
 const pageRoute = require('./routes/pageRoute');
 const courseRoute = require('./routes/courseRoute');
@@ -28,6 +29,10 @@ app.set('view engine', 'ejs');
 //Global Variable
 global.userIn = null;
 global.userRole="";
+
+global.time=(e)=>{
+return moment(e).fromNow();
+}
 
 //Middlewares
 app.use(express.static('public'));
@@ -55,6 +60,8 @@ app.use(
     methods: ['GET', 'POST'],
   })
 );
+
+
 
 //Routes
 app.use('*', (req, res, next) => {
