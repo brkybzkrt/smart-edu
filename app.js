@@ -15,7 +15,7 @@ const adminRoute = require('./routes/adminRoute');
 const app = express();
 
 mongoose
-  .connect('mongodb://localhost/smartedu', {
+  .connect('mongodb+srv://admin:pLeClvudsIhverUe@cluster0.ohhnn.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', {
     usenewUrlParser: true,
     useUnifiedTopology: true,
   })
@@ -45,7 +45,7 @@ app.use(
     secret: 'mysecretkey',
     resave: false,
     saveUninitialized: true,
-    store: MongoStore.create({ mongoUrl: 'mongodb://localhost/smartedu' }),
+    store: MongoStore.create({ mongoUrl: 'mongodb+srv://admin:pLeClvudsIhverUe@cluster0.ohhnn.mongodb.net/myFirstDatabase?retryWrites=true&w=majority' }),
   })
 );
 
@@ -83,7 +83,7 @@ app.use('/users', userRoute);
 app.use('/contact', contactRoute);
 app.use('/admin', adminRoute);
 
-const port = 3000;
+const port = process.env.PORT|| 5000;
 app.listen(port, () => {
   console.log(`app started on port ${port}`);
 });
